@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8"></meta>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+    <meta name="description" content=""></meta>
+    <meta name="author" content=""></meta>
+
+    <title>Image Gallery</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet"></link>
+
+    <!-- Custom CSS -->
+    <link href="css/thumbnail-gallery.css" rel="stylesheet"></link>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<body ng-app="app" ng-controller="home as home">
+
+      <div class="container" ng-show="!home.authenticated">
+  <h2>Login</h2>
+  <div>
+    With Github: <a href="/login/github">click here</a>
+  </div>
+
+    </div> <!-- /container -->
+<script type="text/javascript" src="/webjars/angularjs/angular.min.js"></script>
+<script type="text/javascript">
+  angular.module("app", []).controller("home", function($http) {
+    var self = this;
+    $http.get("/user").success(function(data) {
+      self.user = data.userAuthentication.details.name;
+      self.authenticated = true;
+    }).error(function() {
+      self.user = "N/A";
+      self.authenticated = false;
+    });
+  });
+</script>
+  </body>
+
+</body>
+
+</html>
