@@ -42,10 +42,11 @@ public class Application extends WebSecurityConfigurerAdapter {
  protected void configure(HttpSecurity http) throws Exception {
    http
      .antMatcher("/**")
-     .authorizeRequests()
-       .antMatchers("/", "/login**", "/webjars/**","/images**","/github/success**").permitAll()
-     .anyRequest().authenticated()
-     .and().exceptionHandling()
+     .csrf().disable()
+	.authorizeRequests()
+       .antMatchers("/", "/login**", "/webjars/**","/gallery**","/github/success**").permitAll()
+	.anyRequest().authenticated()
+	.and().exceptionHandling()
        .and().addFilterBefore(ssoFilter(), BasicAuthenticationFilter.class);
  }
  

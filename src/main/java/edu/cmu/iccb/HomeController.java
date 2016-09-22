@@ -55,7 +55,7 @@ public class HomeController {
             redirectAttributes.addFlashAttribute("message", name + " failed to upload");
         }
 
-        return "redirect:/gallery";
+	return "redirect:/gallery";
     }
 
     
