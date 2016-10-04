@@ -1,0 +1,8 @@
+ deploy:
+   edge: true
+   provider: cloudfoundry
+   username: kgolani@andrew.cmu.edu
+   password: Qwop123!
+   api: https://api.run.pivotal.io
+   organization: myawesomeorganization
+   space: staging
