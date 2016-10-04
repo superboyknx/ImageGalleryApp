@@ -4,5 +4,5 @@
    username: kgolani@andrew.cmu.edu
    password: Qwop123!
    api: https://api.run.pivotal.io
-   organization: myawesomeorganization
-   space: staging
+   organization: kgolani-org
+   space: development
