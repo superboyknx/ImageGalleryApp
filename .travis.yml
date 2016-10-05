@@ -6,7 +6,7 @@ jdk:
 before_script:
 - chmod a+x gradlew
 before_install:
-- chmod +x gradlew
+- chmod a+x gradlew
 sudo: required
 script:
 - ./gradlew clean build -i --continue
